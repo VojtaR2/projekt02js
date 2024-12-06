@@ -4,91 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Převodník teplot</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .container {
-            max-width: 300px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-        input {
-            width: 92%;
-            margin-top: 10px;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 8px;
-        }
-        button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 8px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .result {
-            margin-top: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            text-align: center;
-        }
-    </style>
-    
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js"></script>
 </head>
 <body>
-    
+    <div class="main-container">
+        <!-- Převodník Celsia na Fahrenheit -->
         <div class="container">
-            <h2>Převodník na Fahrenheit</h2>
-            <label for="celsius">Stupně Celsia:</label>
-            <input type="number" id="celsius" placeholder="Zadejte hodnotu">
+            <h2>Převod C → F</h2>
+            <label for="celsius">Zadejte stupně Celsia:</label>
+            <input 
+                type="number" 
+                id="celsius" 
+                placeholder="Zadejte hodnotu" 
+                step="any"
+            >
             <button onclick="convertToFahrenheit()">Převést na Fahrenheit</button>
-            <div class="result" id="result"></div>
+            <div class="result" id="result-celsius"></div>
         </div>
 
+        <!-- Převodník Fahrenheita na Celsia -->
         <div class="container">
-            <H2>Převodník na Celsius</H2>
-            <label for="fahrenheit">Stupně Fahrenheit:</label>
-            <input type="number" id="fahrenheit" placeholder="Zadejte hodnotu">
-            <button onclick="convertToCelsius()">Převest na Celsius</button>
+            <h2>Převod F → C</h2>
+            <label for="fahrenheit">Zadejte stupně Fahrenheita:</label>
+            <input 
+                type="number" 
+                id="fahrenheit" 
+                placeholder="Zadejte hodnotu" 
+                step="any"
+            >
+            <button onclick="convertToCelsius()">Převést na Celsia</button>
             <div class="result" id="result-fahrenheit"></div>
         </div>
+    </div>
 
-    <script>
-        function convertToFahrenheit() {
-            const celsius = parseFloat(document.getElementById("celsius").value);
-            if (isNaN(celsius)) {
-                document.getElementById("result").textContent = "Zadejte platné číslo.";
-                return;
-            }
-            
-            
-            const fahrenheit = (celsius * 9/5) + 32;
-            document.getElementById("result").textContent = `${celsius} °C = ${fahrenheit.toFixed(2)} °F`;
-            
-        }
-
-        function convertToCelsius() {
-            const fahrenheit = parseFloat(document.getElementById("fahrenheit").value);
-            if (isNaN(celsius)) {
-                document.getElementById("result-fahrenheit").textContent = "Zadejte platné číslo.";
-                return;
-            }
-            const celsius = (fahrenheit - 32) * 5/9;
-            document.getElementById("result-fahrenheit").textContent = `${fahrenheit} °F = ${celsius.toFixed(2)} °C`;
-        }
-
-    </script>
 </body>
 </html>
+
+
